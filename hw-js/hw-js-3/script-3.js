@@ -11,14 +11,12 @@ function createArray(start, end) {
 function printNumbers(a, b) {
     let count = 1;
     for (let i = a; i <= b; i++) {
+      for (let j = 0; j < count; j++) {
         console.log(i);
-        if (count < i - a + 1) {
-            count++;
-        } else {
-            count = 1;
-        }
+      }
+      count++;
     }
-}
+  }
 
 //3//
 function rangArray(k) {
@@ -35,20 +33,23 @@ function compact(arr) {
 }
 
 //5//
-function funcName(arr) {
-    return arr.reduce((acc, val) => {
-      const type = typeof val;
-      const last = acc.length - 1;
+function separateArrays(arr) {
+    const numberArr = arr.filter(el => typeof el === 'number');
+    const stringArr = arr.filter(el => typeof el === 'string');
   
-      if (acc[last] && typeof acc[last][0] === type) {
-        acc[last].push(val);
-      } else {
-        acc.push([val]);
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        const nestedArr = separateArrays(arr[i]);
+        numberArr.push(...nestedArr[0]);
+        stringArr.push(...nestedArr[1]);
       }
+    }
   
-      return acc;
-    }, []);
+    return [numberArr, stringArr];
   }
+  let arr = [5, "Limit", 12, "a", "3", 99, 2, [2, 4, 3, "33", "a", "text"], "strong", "broun"];
+let arrNew = separateArrays(arr);
+console.log(arrNew);
 
 //6//
 function calc(a, b, op) {
