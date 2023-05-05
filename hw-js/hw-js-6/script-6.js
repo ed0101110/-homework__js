@@ -17,6 +17,36 @@ function showModal() {
     modal.style.display = "block";
 }
 
+//2//
+const header = document.querySelector("h1");
+const myDiv = document.getElementById("myDiv");
+const mylist = document.getElementById("myList");
+const span = document.querySelector("span");
+
+header.style.backgroundColor = "green";
+header.style.textAlign = "center";
+
+const firstP = document.querySelector("p");
+const secondP = document.querySelectorAll("p")[1];
+const thirdP = document.querySelectorAll("p")[2];
+const fourthP = document.querySelectorAll("p")[3];
+
+firstP.style.fontWeight = "bold";
+secondP.style.color = "red";
+thirdP.style.textDecoration = "underline";
+fourthP.style.fontStyle = "italic";
+
+
+const myList = document.getElementById("myList");
+const liElements = myList.getElementsByTagName("li");
+
+for (let i = 0; i < liElements.length; i++) {
+    liElements[i].style.display = "inline";
+}
+
+const spanElement = document.querySelector("span");
+spanElement.style.display = "none";
+
 //3//
 const body = document.querySelector('body');
 const main = document.createElement('main');
